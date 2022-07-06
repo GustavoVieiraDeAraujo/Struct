@@ -1,0 +1,189 @@
+.flex-body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 130vh;
+}
+
+.flex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px solid blue;
+}
+
+.flex-figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: max-content;
+    margin: 0;
+}
+
+.flex-ul{
+    font-size: 20px;
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+}
+
+.flex-main{
+    text-align: justify;
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+    border-left: 2px solid blue;
+    border-right: 2px solid blue;
+    height: 110vh;
+}
+
+.flex-nav-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 15px;
+}
+
+
+.flex-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    height: 100%;
+    width: 20%;
+}
+
+.flex-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 10vh;
+    border: 2px solid blue;
+    gap: 15px;
+}
+
+.style-nav-h1{
+    color: white;
+}
+
+.style-a{
+    font-size: 20px;
+    text-decoration: none;
+    color:white;
+}
+
+.style-img-membros {
+    border: 2px solid blue;
+    border-radius: 30%;
+    transition: all 2s;
+}
+
+.style-img-membros:hover {
+    height: 200px;
+    width: 200px;
+}
+
+.neon{
+    font-size: 20px;
+    font-weight:700;
+    text-decoration: none;
+    display: inline-block;
+    color: blue;
+    padding: 5px;
+    border: blue 3px solid;
+    border-radius: 30px;
+    box-shadow: inset 0 0 16px 0 blue, 0 0 16px blue;
+    text-shadow: 0 0 8px blue, 0 0 32px blue;
+    position: relative;
+}
+
+.neon::before{
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background: blue;
+    width: 100%;
+    height: 100%;
+    transform: perspective(32px)rotateX(40deg)scale(1, 0.25);
+    filter: blur(32px);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+
+.neon:hover::before,
+.neon:focus::before {
+    opacity: 1;
+}
+
+
+h3{
+    text-align: center;
+    margin: 0;
+}
+
+figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+p{
+    width: 100%;
+    margin: 0;
+}
+button {
+    border: transparent;
+    background-color: transparent;
+    width: max-content;
+    align-self: center;
+}
+
+a:hover {
+    color: blue;
+}
+
+.img-membros:hover{
+    height: 200px;
+    width: 200px;
+}
+
+@media only screen and (max-width: 750px) {
+    .flex-main {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        height: 1200vh;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .style-a {
+            display: none;
+        }
+
+    .flex-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 1000vh;
+    }
+}
