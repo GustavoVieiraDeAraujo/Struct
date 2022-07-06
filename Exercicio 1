@@ -1,0 +1,13 @@
+Table Catogorie{
+  id int [pk, not null, unique]
+  name string [not null, unique]
+}
+Table Products{
+  id int [pk, not null, unique]
+  name string [not null]
+  description string [not null]
+  price int [not null]
+  categorie_id int 
+}
+
+ref: Products.categorie_id < Catogorie.id

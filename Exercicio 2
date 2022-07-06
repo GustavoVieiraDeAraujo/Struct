@@ -1,0 +1,101 @@
+Table Products{
+  id int [pk, not null, unique]
+  name string [not null]
+  description string [not null]
+  price int [not null]
+  categorie_id int 
+}
+Table User{
+  id int [pk, not null, unique]
+  name string [not null]
+  password string [not null, unique]
+  email string [not null]
+  photograph varbinary(max) [not null]
+  gender_id int
+  administer_id int
+}
+Table UserProducts{
+  id int [pk, not null, unique]
+  user_id int [not null]
+  products_id int
+}
+Table Categorie{
+  id int [pk, not null, unique]
+  name string [not null]
+}
+Table Administer{
+  id int [pk, not null, unique]
+  name string [not null]
+  password string [not null]
+  email string [not null]
+}
+Table FavoriteFood{
+  id int [pk, not null, unique]
+  name string [not null]
+  price int [not null]
+}
+Table Gender{
+  id int [pk, not null, unique]
+  genero char [not null]
+}
+Table UserFavoriteFoods{
+  id int [pk, not null, unique]
+  user_id int 
+  favoritefoods_id int
+}
+
+ref: User.gender_id < Gender.id
+ref: User.id < UserProducts.user_id
+ref: Products.id < UserProducts.products_id
+ref: User.id < UserFavoriteFoods.user_id
+ref: FavoriteFood.id < UserFavoriteFoods.favoritefoods_id
+ref: Products.categorie_id < Categorie.id
+ref: User.administer_id - Administer.id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+Table UserFavoriteFoods{
+  id int [pk, not null, unique]
+  user_id int 
+  favoritefoods_id int
+}
+
+ref: User.gender_id < Gender.id
+ref: User.id < UserProducts.user_id
+ref: Products.id < UserProducts.products_id
+ref: User.id < UserFavoriteFoods.user_id
+ref: FavoriteFoods.id < UserFavoriteFoods.favoritefoods_id
+ref: Products.categorie_id < Categorie.id
+ref: User.administer_id - Administer.id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

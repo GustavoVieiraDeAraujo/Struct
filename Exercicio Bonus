@@ -1,0 +1,52 @@
+Contexto
+
+Em um belo dia, o Presidente da Struct, vulgo Arthur, decidiu criar um banco de dados que relacionasse os instrutores trainee com seus respectivos cargos que por sua vez estavam relacionados com um grupo de funções especificas.Alem disso, o presidente, solicitou aos instrutores que escolhessem um trainee preferido do processo seletivo trainee 2022, para futuramente usar os dados obtidos em uma possivel competição.Para tanto, Arthur, fez um esboço de como ficaria seu banco dados, obtendo as seguintes requisitos:
+
+-->1 instrutor poderia ter 1 ou + trainees favoritos, assim como um trainee favorito poderia ser escolhido por mais de um instrutor;
+
+-->1 instrutor poderia ter somente 1 cargo , o qual poderia ter somente um unico grupo especifico de funções.Alem disso, um grupo de funções so poderia estar associado a um unico cargo, bem como um cargo poderia estar associado a mais de um instrutor;
+
+-->O banco deveria ter uma relação do genero dos intrutores, a fim de averiguar a maioridade de genero da Struct
+
+
+Codigo
+
+Table Instructor{
+  id int [pk, not null, unique]
+  age int [not null]
+  name string [not null]
+  post_id int 
+  gender_id int
+  favoritetrainee_id int
+}
+Table Post{
+  id int [pk, not null, unique]
+  name string [not null, unique]
+  functios_id int
+}
+Table Functios{
+  id int [pk, not null, unique]
+  functios longtext [not null, unique]
+}
+Table Gender{
+  id int [pk, not null, unique]
+  gender char [not null]
+}
+Table FavoriteTrainee{
+  id int [pk, not null, unique]
+  age int [not null]
+  name string [not null]
+  bestskill string [not null]
+}
+Table InstructorFavoriteTrainee{
+  id int [pk, not null, unique]
+  instructor_id int 
+  favoritetrainee_id int
+}
+
+ref: Instructor.post_id < Post.id
+ref: Post.functios_id - Functios.id
+ref: Instructor.gender_id < Gender.id
+ref: FavoriteTrainee.id < InstructorFavoriteTrainee.favoritetrainee_id
+ref: Instructor.id < InstructorFavoriteTrainee.instructor_id
+
